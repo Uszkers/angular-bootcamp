@@ -1,0 +1,60 @@
+// Global Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// HTML5 Display Definitions
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+// Remove List Styles
+ul,
+ol {
+  list-style: none;
+}
+
+// Typography Reset
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Links Reset
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Form Elements Reset
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+// Images Reset
+img {
+  max-width: 100%;
+  height: auto;
+}
