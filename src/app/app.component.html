@@ -1,13 +1,13 @@
 <ul class="todos">
-  <header class="todos__header"> Moja lista zadań:
+  <header class="todos__header">Moja lista zadań:
     <button class="c-button c-button--icon">
       <img src="assets/plus-solid.svg">
     </button>
   </header>
   <li class="todo">
     <div>
-      <h4>Skończyć pisanie sprawozdania</h4>
-      <span>Dokończyć pisanie sprawozdania z wdrożenia przed ustalonym terminem</span>
+      <h4>{{todos[0].title}}</h4>
+      <span>{{todos[0].description}}</span>
     </div>
     <div class="todo__buttons">
       <button class="c-button c-button--icon c-button--confirm">
@@ -20,8 +20,8 @@
   </li>
   <li class="todo">
     <div>
-      <h4>Zrobić zakupy</h4>
-      <span>Kupić niezbędne produkty na cały tydzień</span>
+      <h4>{{todos[1].title}}</h4>
+      <span>{{todos[1].description}}</span>
     </div>
     <div class="todo__buttons">
       <button class="c-button c-button--icon c-button--confirm">
@@ -34,8 +34,8 @@
   </li>
   <li class="todo">
     <div>
-      <h4>Ćwiczenia</h4>
-      <span>Wstać wcześniej i pójść na siłownię</span>
+      <h4>{{todos[2].title}}</h4>
+      <span>{{todos[2].description}}</span>
     </div>
     <div class="todo__buttons">
       <button class="c-button c-button--icon c-button--confirm">
