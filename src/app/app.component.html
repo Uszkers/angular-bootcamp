@@ -4,45 +4,35 @@
       <img src="assets/plus-solid.svg">
     </button>
   </header>
-  <li class="todo">
+  <li *ngFor="let todo of todos" class="todo">
     <div>
-      <h4>{{todos[0].title}}</h4>
-      <span>{{todos[0].description}}</span>
+      <h4
+        [ngClass]="{ 'todo__title--completed': todo.completed }"
+        class="todo__title"
+      >
+        {{ todo.title }}
+      </h4>
+      <span
+        [ngClass]="{ 'todo__description--completed': todo.completed }"
+        class="todo__description"
+      >{{ todo.description }}</span
+      >
     </div>
     <div class="todo__buttons">
-      <button class="c-button c-button--icon c-button--confirm">
-        <img src="assets/check-solid.svg">
+      <button
+        *ngIf="todo.completed"
+        class="c-button c-button--icon c-button--warning"
+      >
+        <img src="assets/rotate-left-solid.svg"/>
+      </button>
+      <button
+        *ngIf="!todo.completed"
+        class="c-button c-button--icon c-button--confirm"
+      >
+        <img src="assets/check-solid.svg"/>
       </button>
       <button class="c-button c-button--icon c-button--deny">
-        <img src="assets/trash-solid.svg">
-      </button>
-    </div>
-  </li>
-  <li class="todo">
-    <div>
-      <h4>{{todos[1].title}}</h4>
-      <span>{{todos[1].description}}</span>
-    </div>
-    <div class="todo__buttons">
-      <button class="c-button c-button--icon c-button--confirm">
-        <img src="assets/check-solid.svg">
-      </button>
-      <button class="c-button c-button--icon c-button--deny">
-        <img src="assets/trash-solid.svg">
-      </button>
-    </div>
-  </li>
-  <li class="todo">
-    <div>
-      <h4>{{todos[2].title}}</h4>
-      <span>{{todos[2].description}}</span>
-    </div>
-    <div class="todo__buttons">
-      <button class="c-button c-button--icon c-button--confirm">
-        <img src="assets/check-solid.svg">
-      </button>
-      <button class="c-button c-button--icon c-button--deny">
-        <img src="assets/trash-solid.svg">
+        <img src="assets/trash-solid.svg"/>
       </button>
     </div>
   </li>
