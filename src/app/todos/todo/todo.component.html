@@ -1,0 +1,37 @@
+<li class="todo">
+  <div>
+    <h4
+      [ngClass]="{ 'todo__title--completed': todo.completed }"
+      class="todo__title"
+    >
+      {{ todo.title }}
+    </h4>
+    <span
+      [ngClass]="{ 'todo__description--completed': todo.completed }"
+      class="todo__description"
+      >{{ todo.description }}</span
+    >
+  </div>
+  <div class="todo__buttons">
+    <button
+      *ngIf="todo.completed"
+      class="c-button c-button--icon c-button--warning"
+      (click)="restore.emit()"
+    >
+      <img src="assets/rotate-left-solid.svg" alt="restore" />
+    </button>
+    <button
+      *ngIf="!todo.completed"
+      class="c-button c-button--icon c-button--confirm"
+      (click)="complete.emit()"
+    >
+      <img src="assets/check-solid.svg" alt="complete" />
+    </button>
+    <button
+      class="c-button c-button--icon c-button--deny"
+      (click)="remove.emit(todo._id)"
+    >
+      <img src="assets/trash-solid.svg" alt="remove" />
+    </button>
+  </div>
+</li>
