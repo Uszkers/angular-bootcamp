@@ -1,4 +1,4 @@
-<li class="todo">
+<div class="todo">
   <div>
     <h4
       [ngClass]="{ 'todo__title--completed': todo.completed }"
@@ -13,6 +13,13 @@
     >
   </div>
   <div class="todo__buttons">
+    <a
+      *ngIf="!todo.completed"
+      class="c-button c-button--icon"
+      [routerLink]="['/edit', todo._id]"
+    >
+      <img src="assets/pen-solid.svg" alt="complete" />
+    </a>
     <button
       *ngIf="todo.completed"
       class="c-button c-button--icon c-button--warning"
@@ -34,4 +41,4 @@
       <img src="assets/trash-solid.svg" alt="remove" />
     </button>
   </div>
-</li>
+</div>
