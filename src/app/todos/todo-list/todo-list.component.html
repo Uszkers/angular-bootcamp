@@ -1,15 +1,17 @@
-<ul class="todos">
+<div class="todos">
   <header class="todos__header">
     Moja lista zadań:
-    <button class="c-button c-button--icon" (click)="addTodo()">
+    <a class="c-button c-button--icon" [routerLink]="['/add']">
       <img src="assets/plus-solid.svg" alt="add" />
-    </button>
+    </a>
   </header>
-  <abc-todo
-    *ngFor="let todo of todos"
-    [todo]="todo"
-    (complete)="onComplete(todo)"
-    (remove)="onRemove($event)"
-    (restore)="onRestore(todo)"
-  ></abc-todo>
-</ul>
+  <div class="todos__list">
+    <abc-todo
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (complete)="onComplete(todo)"
+      (remove)="onRemove($event)"
+      (restore)="onRestore(todo)"
+    ></abc-todo>
+  </div>
+</div>
