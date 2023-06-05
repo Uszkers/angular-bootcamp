@@ -20,7 +20,12 @@ import { CommonModule } from '@angular/common';
     AddTodoComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
