@@ -19,9 +19,9 @@ export interface TodoFormModel {
 }
 
 export const PRIORITY_DICTIONARY: Dictionary[] = [
-  { code: 'LOW', value: 'Low' },
-  { code: 'MEDIUM', value: 'Medium' },
-  { code: 'HIGH', value: 'High' },
+  { code: 'LOW', value: 'Niski' },
+  { code: 'MEDIUM', value: 'Średni' },
+  { code: 'HIGH', value: 'Wysoki' },
 ];
 
 export const INIT_TODOS: TodoModel[] = [
