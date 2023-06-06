@@ -8,7 +8,7 @@ import { TodoComponent } from './todos/todo/todo.component';
 import { EditTodoComponent } from './todos/edit-todo/edit-todo.component';
 import { AddTodoComponent } from './todos/add-todo/add-todo.component';
 import { PageNotFoundComponent } from './utilities/page-not-found/page-not-found.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 
 @NgModule({
@@ -24,7 +24,8 @@ import {CommonModule} from "@angular/common";
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
