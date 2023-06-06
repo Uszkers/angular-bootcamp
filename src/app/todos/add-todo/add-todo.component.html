@@ -1,7 +1,7 @@
 <form #addTodoForm="ngForm" class="c-card c-form" (ngSubmit)="onSubmit(addTodoForm)">
   <header class="c-form__header">Add new todo:</header>
   <label class="c-form__control c-form__control--full-width">
-    <span class="c-form__label">Title</span>
+    <span class="c-form__label">Title*</span>
     <input
       type="text"
       required
@@ -14,7 +14,7 @@
     </div>
   </label>
   <label class="c-form__control c-form__control--full-width">
-    <span class="c-form__label">Description</span>
+    <span class="c-form__label">Description*</span>
     <input
       type="text"
       required
