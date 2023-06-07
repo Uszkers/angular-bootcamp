@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TodoModel } from '../todo/todo.model';
 import { TodosService } from '../todos.service';
 
@@ -7,14 +7,8 @@ import { TodosService } from '../todos.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })
-export class TodoListComponent implements OnInit {
-  todos: TodoModel[] = [];
-
-  constructor(private readonly todosService: TodosService) {}
-
-  ngOnInit(): void {
-    this.todos = this.todosService.getAll();
-  }
+export class TodoListComponent {
+  constructor(readonly todosService: TodosService) {}
 
   onComplete(todo: TodoModel): void {
     todo.completed = true;

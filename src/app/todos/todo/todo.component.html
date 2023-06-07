@@ -1,11 +1,23 @@
-<div class="todo">
-  <div>
-    <h4
-      [ngClass]="{ 'todo__title--completed': todo.completed }"
-      class="todo__title"
-    >
-      {{ todo.title }}
-    </h4>
+<div class="todo" [ngClass]="priorityClass">
+  <div class="todo__info">
+    <header class="todo__header">
+      <div *ngIf="showDueDate()" class="todo__due-date">
+        <span *ngIf="!isOverdue; else overdue"
+          >Termin: {{ dueDate }}</span
+        >
+        <ng-template #overdue
+          ><span class="todo__due-date todo__due-date--overdue"
+            >Zaległe!</span
+          ></ng-template
+        >
+      </div>
+      <h4
+        [ngClass]="{ 'todo__title--completed': todo.completed }"
+        class="todo__title"
+      >
+        {{ todo.title }}
+      </h4>
+    </header>
     <span
       [ngClass]="{ 'todo__description--completed': todo.completed }"
       class="todo__description"

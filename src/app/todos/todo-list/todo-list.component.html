@@ -7,7 +7,7 @@
   </header>
   <div class="todos__list">
     <abc-todo
-      *ngFor="let todo of todos"
+      *ngFor="let todo of todosService.todos$ | async"
       [todo]="todo"
       (complete)="onComplete(todo)"
       (remove)="onRemove($event)"

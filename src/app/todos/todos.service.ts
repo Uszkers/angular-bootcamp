@@ -1,62 +1,78 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { INIT_TODOS, TodoModel } from './todo/todo.model';
 import * as uuid from 'uuid';
+import { BehaviorSubject, map, Observable, Subject, takeUntil } from 'rxjs';
 
 const LOCAL_STORAGE_TODO_KEY = 'angular=bootcamp-todos-key';
 
 @Injectable({ providedIn: 'root' })
-export class TodosService {
-  todos!: TodoModel[];
+export class TodosService implements OnDestroy {
+  private todosSub$!: BehaviorSubject<TodoModel[]>;
+  todos$!: Observable<TodoModel[]>;
+  unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor() {
     this.initializeTodos();
+    this.todosSub$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((todos: TodoModel[]) => this.save(todos));
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   private initializeTodos(): void {
     const storedItems = localStorage.getItem(LOCAL_STORAGE_TODO_KEY);
     if (storedItems) {
-      this.todos = JSON.parse(storedItems);
+      this.todosSub$ = new BehaviorSubject(JSON.parse(storedItems));
     } else {
-      this.todos = INIT_TODOS;
-      this.save();
+      this.todosSub$ = new BehaviorSubject(INIT_TODOS);
     }
+    this.todos$ = this.todosSub$.asObservable();
   }
 
   post(todo: TodoModel): void {
-    this.todos = [...this.todos, { ...todo, _id: uuid.v4() }];
-    this.save();
+    this.todosSub$.next([
+      ...this.todosSub$.getValue(),
+      { ...todo, _id: uuid.v4() },
+    ]);
   }
 
   delete(id: string): void {
-    this.todos = this.todos.filter((todo: TodoModel) => todo._id !== id);
-    this.save();
+    this.todosSub$.next(
+      this.todosSub$.getValue().filter((todo: TodoModel) => todo._id !== id)
+    );
   }
 
   put(todo: TodoModel): void {
-    this.todos = this.todos.map((elem) => {
-      if (elem._id === todo._id) {
-        return todo;
-      }
-      return elem;
-    });
-    this.save();
-  }
-
-  get(id: string): TodoModel {
-    const item: TodoModel | undefined = this.todos.find(
-      (todo) => todo._id === id
+    this.todosSub$.next(
+      this.todosSub$.getValue().map((elem) => {
+        if (elem._id === todo._id) {
+          return todo;
+        }
+        return elem;
+      })
     );
-    if (!item) {
-      throw `No todo with id: ${id} found!`;
-    }
-    return item;
   }
 
-  getAll(): TodoModel[] {
-    return this.todos;
+  // We could do that synchronously using getValue() but for demonstration purpose we will stick with observable
+  get$(id: string): Observable<TodoModel> {
+    return this.todosSub$.pipe(
+      map((todos: TodoModel[]) => {
+        const todo: TodoModel | undefined = todos.find(
+          (todo) => todo._id === id
+        );
+        if (!todo) {
+          throw `No todo with id: ${id} found!`;
+        }
+        return todo;
+      })
+    );
   }
 
-  private save(): void {
-    localStorage.setItem(LOCAL_STORAGE_TODO_KEY, JSON.stringify(this.todos));
+  private save(todos: TodoModel[]): void {
+    localStorage.setItem(LOCAL_STORAGE_TODO_KEY, JSON.stringify(todos));
   }
 }

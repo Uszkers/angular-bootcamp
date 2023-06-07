@@ -1,30 +1,28 @@
-<form #addTodoForm="ngForm" class="c-card c-form" (ngSubmit)="onSubmit(addTodoForm)">
-  <header class="c-form__header">Dodaj nowe zadanie:</header>
+<form [formGroup]="form" class="c-card c-form" (ngSubmit)="onSubmit(form)">
+  <header class="c-form__header">Edytuj zadanie:</header>
   <label class="c-form__control c-form__control--full-width">
     <span class="c-form__label">Tytuł*</span>
-    <input
-      type="text"
-      required
-      [(ngModel)]="model.title"
-      name="name"
-      #name="ngModel"
-    />
-    <div class="c-form__error-msg" *ngIf="name.invalid && name.touched">
+    <input type="text" class="required" [formControl]="form.controls.title"/>
+    <div
+      class="c-form__error-msg"
+      *ngIf="shouldPresentRequiredValidationMessage(form.controls.title)"
+    >
       Tytuł jest wymagany
     </div>
   </label>
   <label class="c-form__control c-form__control--full-width">
     <span class="c-form__label">Opis*</span>
     <input
+      class="required"
       type="text"
-      required
-      [(ngModel)]="model.description"
+      [formControl]="form.controls.description"
       name="description"
-      #description="ngModel"
     />
     <div
       class="c-form__error-msg"
-      *ngIf="description.invalid && description.touched"
+      *ngIf="
+        shouldPresentRequiredValidationMessage(form.controls.description)
+      "
     >
       Opis jest wymagany
     </div>
@@ -35,13 +33,13 @@
     <input
       type="date"
       [min]="minDate"
-      [(ngModel)]="model.dueDate"
+      [formControl]="form.controls.dueDate"
       name="dueDate"
     /></label>
 
   <label class="c-form__control"
   ><span class="c-form__label">Priorytet</span>
-    <select [(ngModel)]="model.priority" name="priority">
+    <select [formControl]="form.controls.priority" name="priority">
       <option *ngFor="let priority of priorityDict" [value]="priority.code">
         {{ priority.value }}
       </option>
@@ -50,7 +48,7 @@
   <label class="c-form__control c-form__control--checkbox">
     <input
       type="checkbox"
-      [(ngModel)]="model.completed"
+      [formControl]="form.controls.completed"
       name="completed"
     /><span class="c-form__label c-form__label--checkbox"
   >Zakończone</span
@@ -58,6 +56,6 @@
   >
   <footer class="c-form__footer">
     <a class="c-button" [routerLink]="['']">Anuluj</a>
-    <button class="c-button c-button--confirm" type="submit">Dodaj</button>
+    <button class="c-button c-button--confirm" type="submit">Zapisz</button>
   </footer>
 </form>

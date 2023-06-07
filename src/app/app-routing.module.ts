@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
-import { AddTodoComponent } from './todos/add-todo/add-todo.component';
-import { EditTodoComponent } from './todos/edit-todo/edit-todo.component';
+import { AddTodoComponent } from './todos/todo-management/add-todo/add-todo.component';
+import { EditTodoComponent } from './todos/todo-management/edit-todo/edit-todo.component';
 import { PageNotFoundComponent } from './utilities/page-not-found/page-not-found.component';
 
 const routes: Routes = [
