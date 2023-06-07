@@ -51,3 +51,27 @@ export const INIT_TODOS: TodoModel[] = [
     completed: false,
   },
 ];
+
+export const INIT_TODOS: TodoModel[] = [
+  {
+    id: 'd2a1fe93-28b0-4889-9c96-ecf3b18055e8',
+    title: 'Complete project report',
+    description: 'Finish writing the project report before the deadline.',
+    priority: 'HIGH',
+    completed: false,
+  },
+  {
+    id: 'eb195327-8c4a-49fe-9d62-a16b6ea9134c',
+    title: 'Buy groceries',
+    description: 'Purchase essential groceries for the week.',
+    priority: 'MEDIUM',
+    completed: true,
+  },
+  {
+    id: 'f18a96b7-3fcd-4c2c-8034-cf142bf9f23b',
+    title: 'Exercise',
+    description: 'Go for a 30-minute jog in the morning.',
+    priority: 'LOW',
+    completed: false,
+  },
+];
