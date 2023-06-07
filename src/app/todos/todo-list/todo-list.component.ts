@@ -1,27 +1,32 @@
-import { Component } from '@angular/core';
-import { INIT_TODOS, TodoModel } from '../todo/todo.model';
+import { Component, OnInit } from '@angular/core';
+import { TodoModel } from '../todo/todo.model';
+import { TodosService } from '../todos.service';
 
 @Component({
   selector: 'abc-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })
-export class TodoListComponent {
-  todos: TodoModel[] = INIT_TODOS;
+export class TodoListComponent implements OnInit {
+  todos: TodoModel[] = [];
 
-  addTodo(): void {
-    console.log('TODO: implement adding!');
+  constructor(private readonly todosService: TodosService) {}
+
+  ngOnInit(): void {
+    this.todos = this.todosService.getAll();
   }
 
   onComplete(todo: TodoModel): void {
     todo.completed = true;
+    this.todosService.put(todo);
   }
 
   onRestore(todo: TodoModel): void {
     todo.completed = false;
+    this.todosService.put(todo);
   }
 
   onRemove(id: string): void {
-    this.todos = this.todos.filter((todo: TodoModel) => todo._id !== id);
+    this.todosService.delete(id);
   }
 }
