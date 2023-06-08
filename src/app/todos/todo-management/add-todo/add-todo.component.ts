@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { TodoModel } from '../../todo/todo.model';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TodosService } from '../../todos.service';
 import { ManageTodosBase } from '../manage-todos.base';
+import { TodosHttpService } from '../../todos-http.service';
 
 @Component({
   selector: 'abc-add-todo',
@@ -19,8 +19,8 @@ export class AddTodoComponent extends ManageTodosBase {
     description: '',
   };
 
-  constructor(todosService: TodosService, router: Router) {
-    super(todosService, router);
+  constructor(todosHttpService: TodosHttpService, router: Router) {
+    super(todosHttpService, router);
   }
 
   override onSubmit(form: FormGroup): void {
@@ -28,7 +28,9 @@ export class AddTodoComponent extends ManageTodosBase {
       this.showErrors(form);
       return;
     }
-    this.todosService.post(this.model);
-    this.backToList();
+    this.httpService.post(this.model).subscribe((test) => {
+      console.log(test);
+      this.backToList();
+    });
   }
 }

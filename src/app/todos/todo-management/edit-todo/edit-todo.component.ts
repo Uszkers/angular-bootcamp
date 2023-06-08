@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoFormModel, TodoModel } from '../../todo/todo.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { TodosService } from '../../todos.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
 import { ManageTodosBase } from '../manage-todos.base';
+import { TodosHttpService } from '../../todos-http.service';
+import { map } from 'rxjs';
+import { formatForHtmlDateInput } from '../../../utilities/date.utils';
 
 @Component({
   selector: 'abc-edit-todo',
@@ -27,10 +28,10 @@ export class EditTodoComponent extends ManageTodosBase implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    todosService: TodosService,
+    httpService: TodosHttpService,
     router: Router
   ) {
-    super(todosService, router);
+    super(httpService, router);
   }
 
   ngOnInit(): void {
@@ -44,8 +45,9 @@ export class EditTodoComponent extends ManageTodosBase implements OnInit {
       return;
     }
     const todo: TodoModel = this.form.value as TodoModel;
-    this.todosService.put({ ...todo, _id: this.todoId });
-    this.router.navigate(['list']);
+    this.httpService.put({ ...todo, _id: this.todoId }).subscribe(() => {
+      this.backToList();
+    });
   }
 
   shouldPresentRequiredValidationMessage(control: FormControl): boolean {
@@ -53,9 +55,16 @@ export class EditTodoComponent extends ManageTodosBase implements OnInit {
   }
 
   private initFormData(): void {
-    this.todosService
-      .get$(this.todoId)
-      .pipe(take(1))
-      .subscribe((todo: TodoModel) => this.form.patchValue(todo));
+    this.httpService
+      .get(this.todoId)
+      .pipe(
+        map((todo) => ({
+          ...todo,
+          dueDate: formatForHtmlDateInput(todo.dueDate),
+        }))
+      )
+      .subscribe((todo: TodoModel) => {
+        this.form.patchValue(todo);
+      });
   }
 }
