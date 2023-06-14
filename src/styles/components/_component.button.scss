@@ -1,0 +1,43 @@
+.c-button {
+  font-size: 1.8rem;
+  padding: .8rem;
+  border-radius: $elevated-radius;
+  box-shadow: 0 0 $elevation $elevated-shadow-color;
+  width: max-content;
+
+  &:hover {
+    background: darken($color-background, 2);
+  }
+
+  &--confirm {
+    background: $color-confirm;
+
+    &:hover {
+      background: darken($color-confirm, 5);
+    }
+  }
+
+  &--deny {
+    background: $color-deny;
+
+    &:hover {
+      background: darken($color-deny, 8);
+    }
+  }
+
+  &--warning {
+    background: $color-warning;
+    &:hover {
+      background: darken($color-warning, 8);
+    }
+  }
+
+  &--icon {
+    padding: 1rem;
+    $dimension: 3.5rem;
+    width: $dimension;
+    height: $dimension;
+    display: grid;
+    place-items: center;
+  }
+}

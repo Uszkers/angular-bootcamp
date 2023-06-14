@@ -1,0 +1,54 @@
+.c-form {
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  width: 50rem;
+  padding: 1rem;
+  border-radius: $elevated-radius;
+  box-shadow: 0 0 $elevation $elevated-shadow-color;
+  $control-spacing: 2.2rem;
+
+  &__header {
+    padding-bottom: 2.2rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+
+  &__control {
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 2.2rem;
+    position: relative;
+
+    &--full-width, &--checkbox {
+      grid-column: -1/1;
+    }
+
+    &--checkbox {
+      flex-flow: row;
+      width: min-content;
+      gap: .4rem;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+  }
+
+  &__error-msg {
+    position: absolute;
+    bottom: calc(#{$control-spacing} - 1.7rem);
+    color: $color-deny;
+    font-size: 1.4rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__footer, &__header {
+    grid-column: -1/1;
+  }
+}

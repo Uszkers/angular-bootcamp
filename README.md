@@ -1,27 +1,37 @@
 # AngularBootcamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+## Uruchomienie aplikacji
 
-## Development server
+Wykonaj polecenie `npm start` następnie uruchom `http://localhost:4200/` w przeglądarce.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Cel szkolenia
 
-## Code scaffolding
+Zaznajomienie uczestników z podstawami Angulara oraz przygotowanie do podjęcia pierwszych prostych zadań w rzeczywistym
+projekcie.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Spis treści
 
-## Build
+### [Rozdział 1.](./src/resources/chapter-1/README.md)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+W tym rozdziale zapoznasz się z podstawową strukturą aplikacji oraz dowiesz się, czym są komponenty. Omówiona zostanie
+również tematyka wymiany danych między komponentami oraz kilka elementów ułatwiających życie dostarczonych przez
+Angulara.
 
-## Running unit tests
+### [Rozdział 2.](./src/resources/chapter-2/README.md)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+W drugim rozdziale omówimy, czym są **serwisy** oraz jak mogą być wykorzystane do wymiany informacji między
+komponentami. Omówimy również
+kwestię routingu w Angularze, co umożliwi nam tworzenie stron edycji i dodawania zadań przy użyciu FormsAPI,
+zarówno w podejściu **reactive-forms**, jak i **template-driven-forms**.
 
-## Running end-to-end tests
+### [Rozdział 3.](./src/resources/chapter-3/README.md)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+W trzecim i ostatnim rozdziale naszego szkolenia omówimy kwestię wykonywania zapytań do **backendu**, co
+pozwoli nam na tworzenie w pełni funkcjonalnej aplikacji, z danymi zarządzanymi przez bazę danych.
 
-## Further help
+## Dobre praktyki
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- BEM: przy pisaniu styli stosujemy się do metodyki Block element Modifier więcej
+  info [tutaj](https://www.nafrontendzie.pl/metodyki-css-2-bem)
+- Do zarządzania globalnymi stylami stosujemy się do praktyki ITCSS więcej
+  info [tutaj](https://www.wpdesk.pl/blog/struktura-itcss-czyli-jak-zapanowac-nad-plikami-css/)
