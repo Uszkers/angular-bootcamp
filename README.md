@@ -17,17 +17,26 @@ W tym rozdziale zapoznasz się z podstawową strukturą aplikacji oraz dowiesz s
 również tematyka wymiany danych między komponentami oraz kilka elementów ułatwiających życie dostarczonych przez
 Angulara.
 
+Kluczowe pojęcia: komponent, moduł, interpolacja, one-way/two-way data binding (@Input, @Output),
+dyrektywy wybudowane (*ngFor, *ngIf, ngClass),
+
 ### [Rozdział 2.](./src/resources/chapter-2/README.md)
 
-W drugim rozdziale omówimy, czym są **serwisy** oraz jak mogą być wykorzystane do wymiany informacji między
-komponentami. Omówimy również
-kwestię routingu w Angularze, co umożliwi nam tworzenie stron edycji i dodawania zadań przy użyciu FormsAPI,
-zarówno w podejściu **reactive-forms**, jak i **template-driven-forms**.
+W drugim rozdziale przeanalizujemy zagadnienie routingu w Angularze, co pozwoli nam na tworzenie stron edycji i
+dodawania zadań za pomocą FormsAPI, zarówno przy użyciu podejścia **reactive-forms**, jak i **template-driven-forms**.
+Będziesz
+również miał okazję dowiedzieć się, czym są serwisy oraz jak można ich używać do wymiany informacji między komponentami.
+Dodatkowo zapoznasz się z biblioteką RxJs, która jest powszechnie wykorzystywana w całym frameworku.
+
+Kluczowe pojęcia: FormsAPI (reactive/template-driven), routing, lifecycle hooks, dependency injection, serwisy, rxjs,
+async pipe, zarządzanie subskrypcją,
 
 ### [Rozdział 3.](./src/resources/chapter-3/README.md)
 
-W trzecim i ostatnim rozdziale naszego szkolenia omówimy kwestię wykonywania zapytań do **backendu**, co
+W trzecim i ostatnim rozdziale naszego szkolenia omówimy kwestię wykonywania zapytań **HTTP** do **backendu**, co
 pozwoli nam na tworzenie w pełni funkcjonalnej aplikacji, z danymi zarządzanymi przez bazę danych.
+
+Kluczowe pojęcia: HttpClient
 
 ## Dobre praktyki
 

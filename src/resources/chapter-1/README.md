@@ -4,29 +4,26 @@ W tym rozdziale zapoznasz się z podstawową strukturą aplikacji oraz dowiesz s
 również tematyka wymiany danych między komponentami oraz kilka elementów ułatwiających życie dostarczonych przez
 Angulara.
 
-## 1.1 (branch chapter-1.1)
+## 1.1 (branch chapter-1.1) Pierwsze kroki z Angularem
 
-W pierwszym commicie pracujemy nad wyświetleniem listy zadań w sposób statyczny używając tylko i wyłącznie HTMLa w pliku
-[app.component.html](../../app/app.component.html)
+W pierwszym rozdziale:
+- zapoznamy się ze strukturą projektu i **Angular CLI**,
+- Stworzymy prosty statyczny widok listy zadań, wykorzystując podstawowe elementy dostarczone przez framework: **komponenty** i **moduły**.
 
-## 1.2 (branch chapter-1.2)
+## 1.2 (branch chapter-1.2) One-way data binding
 
 W tym podrozdziale zajmiemy się jednostronną wymianę danych z komponentu do HTMLa przez interpolacje `{{}}` przy użyciu
 podwójnych nawiasów wąsatych.
 
-## 1.3 (branch chapter-1.3)
+## 1.3 (branch chapter-1.3) Wbudowane Dyrektywy
 
-Tym razem zajmiemy się sposobami na zdynamizowanie formularza czyli w jaki sposób nie powielać tego samego kodu lub jak
-dodać coś warunkowo do HTMLa.
-W tym celu weźmiemy pod lupę kilka z dostarczonych przez Angulara dyrektyw strukturalnych oraz atrybutowych (ngFor,
-ngIf, ngClass).
+Tym razem zajmiemy się sposobami na zdynamizowanie komponentu, korzystając z dyrektyw strukturalnych oraz atrybutowych, czyli:
+- w jaki sposób nie powielać tego samego kodu (`*ngFor`),
+- jak dodać coś warunkowo do HTMLa (`*ngIf`),
+- jak dodać lub usunąć klasę w zależności od zadanych kryteriów (`ngClass`).
 
-Dodatkowo w ramach utrzymania spójnego kodu, została dodana biblioteka zewnętrzna do zarządzania formatowaniem
-kodu [prettier](https://prettier.io/)
+## 1.4 (branch chapter-1.4) Komponenty i komunikacja między nimi 
 
-## 1.4 (branch chapter-1.4)
-
-Przyszedł czas na jedną z najważniejszych funkcjonalności Angulara jaką jest podział aplikacji na komponenty i nad tym
-właśnie skupimy, się w tym podrozdziale
-przejdziemy przez wydzielanie kodu do komponentu oraz wymianę danych między komponentami (input / output). W ramach tego
-tematu wspomnimy też bardzo pobieżnie na temat tego, w jaki sposób Angular zarządza renderowaniem widoku.
+Przyszedł czas na jedną z najważniejszych funkcjonalności Angulara, jaką jest podział aplikacji na komponenty:
+- zademonstrujemy podział większych kawałków kodu na mniejsze, wyspecjalizowane komponenty,
+- omówimy wymianę danych oraz komunikację między komponentami (`@Input` / `@Output`).

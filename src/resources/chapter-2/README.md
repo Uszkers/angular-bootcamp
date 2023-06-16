@@ -1,37 +1,42 @@
 # Rozdział 2
 
-W drugim rozdziale omówimy, czym są **serwisy** oraz jak mogą być wykorzystane do wymiany informacji między
-komponentami. Omówimy również
-kwestię routingu w Angularze, co umożliwi nam tworzenie stron edycji i dodawania zadań przy użyciu FormsAPI,
-zarówno w podejściu **reactive-forms**, jak i **template-driven-forms**.
+W drugim rozdziale przeanalizujemy zagadnienie routingu w Angularze, co pozwoli nam na tworzenie stron edycji i
+dodawania zadań za pomocą FormsAPI, zarówno przy użyciu podejścia **reactive-forms**, jak i **template-driven-forms**.
+Będziesz
+również miał okazję dowiedzieć się, czym są serwisy oraz jak można ich używać do wymiany informacji między komponentami.
+Dodatkowo zapoznasz się z biblioteką RxJs, która jest powszechnie wykorzystywana w całym frameworku.
 
-## 2.1 (branch chapter-2.1)
+## 2.1 (branch chapter-2.1) Routing
 
-Na pierwszy ogień dodamy 2 nowe
-komponenty [edit-todo.component](../../app/todos/todo-management/edit-todo/edit-todo.component.ts)
-oraz [add-todo.component](../../app/todos/todo-management/add-todo/add-todo.component.ts) i
-umieścimy [todo-list.component](../../app/todos/todo-list/todo-list.component.ts), oraz nowo dodane komponenty
-do [app-routing.module](../../app/app-routing.module.ts), aby umożliwić nawigację po
-aplikacji.
+Na wstępie dodamy 2 nowe
+komponenty **edit-todo.component**
+oraz **add-todo.component** i
+umieścimy **todo-list.component**, oraz nowo dodane komponenty
+do app-routing.module, aby umożliwić nawigację po
+aplikacji oraz dalsze jej rozbudowywanie.
 
-## 2.2 (branch chapter-2.2)
+## 2.2 (branch chapter-2.2) Template-driven forms
 
-W tym podrozdziale stworzymy formularz dodawania TODO przy użyciu **template-driven form** jednego z dwóch Angularowych
+W tym podrozdziale stworzymy formularz dodawania zadania przy użyciu **template-driven form** jednego z dwóch Angularowych
 sposobów na tworzenie formularzy.
 
-## 2.3 (branch chapter-2.3)
+## 2.3 (branch chapter-2.3) Reactive forms
 
-Kolejne na tapet wejdzie formularz edycji TODO którego stworzymy przy użyciu **reactive forms** drugiego sposobu z
+Kolejne na tapet wejdzie formularz edycji zadania, którego stworzymy przy użyciu **reactive forms** drugiego sposobu z
 Angularowego **Forms API**
 
-## 2.4 (branch chapter-2.4)
+## 2.4 (branch chapter-2.4) Serwisy i Dependency Injection; Lifecycle hooks
 
-W tej części szkolenia stworzymy serwis, w którym będziemy przechowywać stan TODOsów, pozwoli nam to na implementacje
-edycji oraz dodawania. Skorzystamy też z local storage, aby przechowywać stan TODOsów, między sesjami
+W tej części szkolenia:
+- stworzymy serwis, w którym będziemy przechowywać stan listy zadań; pozwoli nam to na implementacje edycji oraz dodawania,
+- skorzystamy z **local storage**, aby przechowywać stan listy zadań między sesjami
+- pobieżnie przejdziemy przez cykl życia komponentu i skorzystamy z **lifecycle hooka** `ngOnInit`
 
-## 2.5 (branch chapter-2.5)
+## 2.5 (branch chapter-2.5) RxJs i refactoring
 
-Super, że udało nam się poprawić błąd, ale czy można było to zrobić lepiej? Skorzystamy z tej okazji, aby trochę się
-cofnąć i dokonać małego refactoru, oraz wprowadzić kilka nowych pojęć takich jak. **Subject**, **Observable**, *
-*zarządzanie
-subskrypcją** czy **async pipe**
+W tym rozdziale dokonamy małego refactoru, który będzie okazją do porozmawiania o bibliotece RxJs służącej do programowania reaktywnego i wykorzystywanej powszechnie w całym framewrku.
+W szczególności omówimy:
+- **Observable**
+- **Subject** (w tym **BehaviorSubject**),
+- **zarządzanie subskrypcją** (tu również kolejny **lifecycle hook**: `ngOnDestroy`)
+- **async pipe**

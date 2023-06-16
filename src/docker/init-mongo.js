@@ -13,7 +13,7 @@ db.todos.insertMany([
     description: 'Kupić niezbędne produkty na cały tydzień',
     dueDate: '2023-06-02',
     priority: 'MEDIUM',
-    completed: false,
+    completed: true,
   },
   {
     title: 'Ćwiczenia',
