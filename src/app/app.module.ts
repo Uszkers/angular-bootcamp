@@ -5,18 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoComponent } from './todos/todo/todo.component';
+import { PageNotFoundComponent } from './utilities/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoComponent
+    TodoComponent,
+    PageNotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
