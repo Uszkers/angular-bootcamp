@@ -9,7 +9,7 @@
       name="name"
       #name="ngModel"
     />
-    <div class="c-form__error-msg" [hidden]="name.valid || name.untouched">
+    <div class="c-form__error-msg" *ngIf="name.invalid && name.touched">
       Tytuł jest wymagany
     </div>
   </label>
@@ -24,7 +24,7 @@
     />
     <div
       class="c-form__error-msg"
-      [hidden]="description.valid || description.untouched"
+      *ngIf="description.invalid && description.touched"
     >
       Opis jest wymagany
     </div>
