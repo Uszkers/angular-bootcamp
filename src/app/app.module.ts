@@ -10,6 +10,7 @@ import { AddTodoComponent } from './todos/todo-management/add-todo/add-todo.comp
 import { PageNotFoundComponent } from './utilities/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RxjsDemoComponent } from './rxjs-demo/rxjs-demo.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
     EditTodoComponent,
     AddTodoComponent,
     PageNotFoundComponent,
+    RxjsDemoComponent,
   ],
   imports: [
     BrowserModule,

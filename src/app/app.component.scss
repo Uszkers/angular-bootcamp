@@ -1,6 +1,17 @@
+@import "src/styles/settings/settings.colors";
+
 :host {
   height: 100vh;
   display: block;
 }
 
+.link {
+  display: inline-block;
+  margin: 1rem;
+  font-size: 1.8rem;
+
+  &:hover {
+    color: $color-focus;
+  }
+}
 
