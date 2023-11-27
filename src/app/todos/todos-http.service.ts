@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoModel } from './todo/todo.model';
 import { HttpClient } from '@angular/common/http';
-import { DeleteResponse } from '../utilities/http.utils';
 
 const API_PREFIX = 'api';
 const SINGLE_TODO_PATH = `${API_PREFIX}/todo`;
@@ -28,7 +27,7 @@ export class TodosHttpService {
     return this.http.put<void>(TODO_BY_ID(todo._id!), todo);
   }
 
-  delete(id: string): Observable<DeleteResponse> {
-    return this.http.delete<DeleteResponse>(TODO_BY_ID(id));
+  delete(id: string): Observable<string> {
+    return this.http.delete(TODO_BY_ID(id), { responseType: 'text' });
   }
 }
