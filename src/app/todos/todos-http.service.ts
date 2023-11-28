@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 const API_PREFIX = 'api';
 const SINGLE_TODO_PATH = `${API_PREFIX}/todo`;
 const TODO_BY_ID = (id: string): string => `${SINGLE_TODO_PATH}/${id}`;
+import * as uuid from 'uuid';
 
 @Injectable({ providedIn: 'root' })
 export class TodosHttpService {
@@ -20,7 +21,7 @@ export class TodosHttpService {
   }
 
   post(todo: TodoModel): Observable<void> {
-    return this.http.post<void>(SINGLE_TODO_PATH, todo);
+    return this.http.post<void>(SINGLE_TODO_PATH, { ...todo, _id: uuid.v4() });
   }
 
   put(todo: TodoModel): Observable<void> {
